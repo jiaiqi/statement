@@ -1,31 +1,31 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <!-- <div id="nav" class="nav">
+      <router-link class="nav_item" to="/zxrsfx">在线人数分析</router-link>
+      <router-link class="nav_item" to="/yyrdfx">应用热点统计</router-link>
+      <router-link class="nav_item" to="/yhgcfx">用户构成分析</router-link>
+      <router-link class="nav_item" to="/wjfwfx">文件服务分析</router-link>
+      <router-link class="nav_item" to="/xtrlt">系统热力图</router-link>
+      <router-link class="nav_item" to="/yyzyjk">应用资源监控</router-link>
     </div>
-    <router-view/>
+    <router-view />-->
+    <Home />
   </div>
 </template>
-
-<style>
+<script>
+import Home from './views/Home'
+export default {
+  components: {
+    Home,
+  },
+}
+</script>
+<style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>

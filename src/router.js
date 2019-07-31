@@ -14,12 +14,34 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/zxrsfx', // 在线人数分析
+      name: 'zxrsfx',
+      component: () => import(/* webpackChunkName: "zxrsfx" */ './views/peopleNum.vue'),
+    },
+    {
+      path: '/yyrdtj', // 应用热点统计
+      name: 'yyrdtj',
+      component: () => import(/* webpackChunkName: "yyrdtj" */ './views/appHotspot.vue'),
+    },
+    {
+      path: '/yhgcfx', // 用户构成分析
+      name: 'yhgcfx',
+      component: () => import(/* webpackChunkName: "yhgcfx" */ './views/userConstitute.vue'),
+    },
+    {
+      path: '/wjfwfx', // 文件服务分析
+      name: 'wjfwfx',
+      component: () => import(/* webpackChunkName: "wjfwfx" */ './views/fileServe.vue'),
+    },
+    {
+      path: '/xtrlt', // 系统热力图
+      name: 'xtrlt',
+      component: () => import(/* webpackChunkName: "xtrlt" */ './views/systemCharts.vue'),
+    },
+    {
+      path: '/yyzyjk', // 应用资源监控
+      name: 'yyzyjk',
+      component: () => import(/* webpackChunkName: "yyzyjk" */ './views/applicationRes.vue'),
     },
   ],
 });
