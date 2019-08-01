@@ -10,15 +10,7 @@
 export default {
   data() {
     return {
-    }
-  },
-  mounted() {
-    this.setData1()
-  },
-  methods: {
-    setData1() {
-      let myChart = this.$echarts.init(document.getElementById('charts'));
-      let dataCX = [
+      dataCX: [
         [1, 55, 9, 56, 0.46, 18, 6, "良"],
         [2, 25, 11, 21, 0.65, 34, 9, "优"],
         [3, 56, 7, 63, 0.3, 14, 5, "良"],
@@ -50,9 +42,8 @@ export default {
         [29, 134, 96, 165, 2.76, 83, 41, "轻度污染"],
         [30, 52, 24, 60, 1.03, 50, 21, "良"],
         [31, 46, 5, 49, 0.28, 10, 6, "优"]
-      ];
-
-      let dataTJ = [
+      ],
+      dataTJ: [
         [1, 26, 37, 27, 1.163, 27, 13, "优"],
         [2, 85, 62, 71, 1.195, 60, 8, "良"],
         [3, 78, 38, 74, 1.363, 37, 7, "良"],
@@ -84,9 +75,8 @@ export default {
         [29, 82, 92, 174, 3.29, 0, 13, "良"],
         [30, 106, 116, 188, 3.628, 101, 16, "轻度污染"],
         [31, 118, 50, 0, 1.383, 76, 11, "轻度污染"]
-      ];
-
-      let dataXZ = [
+      ],
+      dataXZ: [
         [1, 91, 45, 125, 0.82, 34, 23, "良"],
         [2, 65, 27, 78, 0.86, 45, 29, "良"],
         [3, 83, 60, 84, 1.09, 73, 27, "良"],
@@ -118,9 +108,8 @@ export default {
         [29, 188, 143, 197, 1.66, 99, 51, "中度污染"],
         [30, 174, 131, 174, 1.55, 108, 50, "中度污染"],
         [31, 187, 143, 201, 1.39, 89, 53, "中度污染"]
-      ];
-
-      let dataYD = [
+      ],
+      dataYD: [
         [1, 26, 37, 27, 1.163, 27, 13, "优"],
         [2, 85, 62, 71, 1.195, 60, 8, "良"],
         [3, 78, 38, 74, 1.363, 37, 7, "良"],
@@ -152,7 +141,17 @@ export default {
         [29, 82, 92, 174, 3.29, 0, 13, "良"],
         [30, 106, 116, 188, 3.628, 101, 16, "轻度污染"],
         [31, 118, 50, 0, 1.383, 76, 11, "轻度污染"]
-      ];
+      ]
+    }
+  },
+  mounted() {
+    this.setData1()
+  },
+  methods: {
+    setData1() {
+      let self = this;
+      let myChart = this.$echarts.init(document.getElementById('charts'));
+
       let schema = [
         { name: 'date', index: 0, text: '日' },
         { name: 'reqNum', index: 1, text: '请求次数' },
@@ -280,25 +279,25 @@ export default {
             name: '查询',
             type: 'scatter',
             itemStyle: itemStyle,
-            data: dataCX
+            data: self.dataCX
           },
           {
             name: '提交',
             type: 'scatter',
             itemStyle: itemStyle,
-            data: dataTJ
+            data: self.dataTJ
           },
           {
             name: '下载',
             type: 'scatter',
             itemStyle: itemStyle,
-            data: dataXZ
+            data: self.dataXZ
           },
           {
             name: '阅读',
             type: 'scatter',
             itemStyle: itemStyle,
-            data: dataYD
+            data: self.dataYD
           }
         ]
       };
