@@ -1,22 +1,14 @@
 <template>
   <div id="app">
-    <!-- <div id="nav" class="nav">
-      <router-link class="nav_item" to="/zxrsfx">在线人数分析</router-link>
-      <router-link class="nav_item" to="/yyrdfx">应用热点统计</router-link>
-      <router-link class="nav_item" to="/yhgcfx">用户构成分析</router-link>
-      <router-link class="nav_item" to="/wjfwfx">文件服务分析</router-link>
-      <router-link class="nav_item" to="/xtrlt">系统热力图</router-link>
-      <router-link class="nav_item" to="/yyzyjk">应用资源监控</router-link>
-    </div>
-    <router-view />-->
-    <Home />
+    <!-- <Home /> -->
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import Home from './views/Home'
+// import Home from './views/Home'
 export default {
   components: {
-    Home,
+    // Home,
   },
 }
 </script>

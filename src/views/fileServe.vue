@@ -1,16 +1,54 @@
 <template>
   <div class="wrap">
-    <header class="header">应用访问次数</header>
+    <header class="header">文件服务数量分析</header>
     <div class="content_box">
-      <div class="content_item col-60"></div>
-      <div class="content_item col-35"></div>
+      <div class="content_item col-60">
+        <ve-histogram :data="chartData1" height="600px"></ve-histogram>
+      </div>
+      <div class="content_item col-35" style="padding-top:50px;box-sizing:border-box;">
+        <ve-ring :data="chartData2" :settings="chartSettings"></ve-ring>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    this.chartSettings = {
+      radius: 80,
+      offsetY: 230,
+      roseType: 'radius'
+    }
+    return {
+      chartData1: {
+        columns: ['服务', '文件数量'],
+        rows: [
+          { '服务': '智慧党建', '文件数量': 1393 },
+          { '服务': '社区服务', '文件数量': 5461 },
+          { '服务': '公共服务', '文件数量': 2923 },
+          { '服务': '便民服务', '文件数量': 2649 },
+          { '服务': '社会组织', '文件数量': 1564 },
+          { '服务': '志愿服务', '文件数量': 4593 },
+          { '服务': '社区论坛', '文件数量': 2635 },
+          { '服务': '管理入口', '文件数量': 3593 }
+        ]
+      },
+      chartData2: {
+        columns: ['服务', '文件数量'],
+        rows: [
+          { '服务': '智慧党建', '文件数量': 1393 },
+          { '服务': '社区服务', '文件数量': 5461 },
+          { '服务': '公共服务', '文件数量': 2923 },
+          { '服务': '便民服务', '文件数量': 2649 },
+          { '服务': '社会组织', '文件数量': 1564 },
+          { '服务': '志愿服务', '文件数量': 4593 },
+          { '服务': '社区论坛', '文件数量': 2635 },
+          { '服务': '管理入口', '文件数量': 3593 }
+        ]
+      },
+    }
+  },
 }
 </script>
 
@@ -31,8 +69,11 @@ export default {
     display: flex;
     justify-content: space-around;
     .content_item {
-      height: 800px;
+      height: 600px;
       border: 1px solid #999;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
     }
   }
 }
