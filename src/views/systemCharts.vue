@@ -175,8 +175,9 @@ export default {
 
       let option = {
         // backgroundColor: '#404a59',
+        // ef5350 42a5f5 66bb6a ffca28
         color: [
-          '#ff6348', '#70a1ff', '#3742fa', '#7bed9f'
+          '#ef5350', '#42a5f5', '#66bb6a', '#ffca28'
         ],
         legend: {
           y: 'top',

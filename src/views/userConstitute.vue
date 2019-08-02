@@ -10,13 +10,7 @@
       </div>
       <div class="content_list">
         <div class="title">社区用户人数排名</div>
-        <ve-histogram
-          :data="chartData01"
-          :colors="color01"
-          :extend="extend"
-          height="300px"
-          width="150px"
-        ></ve-histogram>
+        <ve-histogram :data="chartData01" :colors="color01" :extend="extend" height="300px"></ve-histogram>
       </div>
       <div class="content_list">
         <div class="title">月度人数变动</div>
@@ -55,8 +49,13 @@ export default {
       chartData01: {
         columns: ['社区', '人数'],
         rows: [
-          { '社区': '党\n建\n论\n坛', '人数': 1393 },
-          { '社区': '社\n区\n论\n坛', '人数': 3530 },
+          { '社区': '智\n慧\n党\n建', '人数': 1393 },
+          { '社区': '社\n区\n服\n务', '人数': 5341 },
+          { '社区': '公\n共\n服\n务', '人数': 1278 },
+          { '社区': '便\n民\n服\n务', '人数': 2649 },
+          { '社区': '社\n会\n组\n织', '人数': 4776 },
+          { '社区': '志\n愿\n服\n务', '人数': 3256 },
+          { '社区': '社\n区\n论\n坛', '人数': 2013 }
         ]
       },
       chartData02: {
@@ -119,21 +118,21 @@ export default {
       overflow: hidden;
       &:first-child {
         display: flex;
-        width: 75%;
+        width: 70%;
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
       }
       &:nth-child(2) {
-        width: 20%;
+        width: 28%;
       }
       &:nth-child(3) {
-        width: 60%;
+        width: 73%;
         // height: 400px;
         margin-top: 30px;
       }
       &:nth-child(4) {
-        width: 35%;
+        width: 25%;
         // height: 400px;
         margin-top: 30px;
       }
