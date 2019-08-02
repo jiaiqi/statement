@@ -9,20 +9,27 @@
       <div class="items" @click="changeDataType(5)" :class="{'active':checkDataType===5}">自定义时间段</div>
     </div>
     <div class="top">
-      <div class="top_item">最热应用：智慧党建</div>
-      <div class="top_item">最热访问次数：65842</div>
-      <div class="top_item">产生时间：2019-7-31</div>
+      <div class="top_item">最热应用：{{topData.hotApp}}</div>
+      <div class="top_item">最热访问次数：{{topData.hotNum}}</div>
+      <div class="top_item">产生时间：{{topData.date}}</div>
     </div>
     <div class="content">
-      <ve-histogram :data="chartData" :extend="extend"></ve-histogram>
+      <ve-histogram :data="chartData" :colors="colors"></ve-histogram>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+
   data() {
+    this.colors = ['#42A5F5']
     return {
+      topData: {
+        hotApp: '智慧党建',
+        hotNum: '65289',
+        date: '2019-8-2'
+      },
       checkDataType: 1,
       chartData: {},
       chartData1: {
@@ -106,18 +113,18 @@ export default {
       chartData4: {
         columns: ['月份', '访问用户'],
         rows: [
-          { '月份': '一', '访问用户': 1393 },
-          { '月份': '二', '访问用户': 3530 },
-          { '月份': '三', '访问用户': 2923 },
-          { '月份': '四', '访问用户': 1723 },
-          { '月份': '五', '访问用户': 3792 },
-          { '月份': '六', '访问用户': 4593 },
-          { '月份': '七', '访问用户': 4913 },
-          { '月份': '八', '访问用户': 1393 },
-          { '月份': '九', '访问用户': 3530 },
-          { '月份': '十', '访问用户': 2923 },
-          { '月份': '十一', '访问用户': 1723 },
-          { '月份': '十二', '访问用户': 3792 }
+          { '月份': '一月', '访问用户': 1393 },
+          { '月份': '二月', '访问用户': 3530 },
+          { '月份': '三月', '访问用户': 2923 },
+          { '月份': '四月', '访问用户': 1723 },
+          { '月份': '五月', '访问用户': 3792 },
+          { '月份': '六月', '访问用户': 4593 },
+          { '月份': '七月', '访问用户': 4913 },
+          { '月份': '八月', '访问用户': 1393 },
+          { '月份': '九月', '访问用户': 3530 },
+          { '月份': '十月', '访问用户': 2923 },
+          { '月份': '十一月', '访问用户': 1723 },
+          { '月份': '十二月', '访问用户': 3792 }
         ]
       },
     }

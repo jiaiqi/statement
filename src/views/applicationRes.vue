@@ -13,7 +13,8 @@ export default {
 <style lang="scss" scoped>
 .wrap {
   width: 65%;
-  border: 1px solid #999;
+  border: 1px solid #42b983;
+  border-radius: 5px;
   margin: 0 auto;
   height: 500px;
   .header {

@@ -169,12 +169,12 @@ export default {
           shadowBlur: 10,
           shadowOffsetX: 0,
           shadowOffsetY: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
+          shadowColor: 'rgba(0, 0, 0, 0.7)'
         }
       };
 
       let option = {
-        backgroundColor: '#404a59',
+        // backgroundColor: '#404a59',
         color: [
           '#ff6348', '#70a1ff', '#3742fa', '#7bed9f'
         ],
@@ -182,7 +182,7 @@ export default {
           y: 'top',
           data: ['查询', '提交', '下载', '阅读'],
           textStyle: {
-            color: '#fff',
+            color: '#000',
             fontSize: 16
           }
         },
@@ -195,7 +195,7 @@ export default {
         tooltip: {
           padding: 10,
           backgroundColor: '#222',
-          borderColor: '#777',
+          borderColor: '#000',
           borderWidth: 1,
           formatter: function (obj) {
             let value = obj.value;
@@ -210,7 +210,7 @@ export default {
           name: '日期',
           nameGap: 16,
           nameTextStyle: {
-            color: '#fff',
+            color: '#000',
             fontSize: 14
           },
           max: 31,
@@ -219,7 +219,7 @@ export default {
           },
           axisLine: {
             lineStyle: {
-              color: '#eee'
+              color: '#000'
             }
           }
         },
@@ -229,12 +229,12 @@ export default {
           nameLocation: 'end',
           nameGap: 20,
           nameTextStyle: {
-            color: '#fff',
+            color: '#000',
             fontSize: 16
           },
           axisLine: {
             lineStyle: {
-              color: '#eee'
+              color: '#000'
             }
           },
           splitLine: {
@@ -247,7 +247,7 @@ export default {
             top: '10%',
             dimension: 2,
             min: 0,
-            max: 250,
+            max: 300,
             itemWidth: 30,
             itemHeight: 120,
             calculable: true,
@@ -255,21 +255,22 @@ export default {
             text: ['请求次数'],
             textGap: 30,
             textStyle: {
-              color: '#fff'
+              color: '#000'
             },
             inRange: {
               symbolSize: [10, 70]
             },
             outOfRange: {
               symbolSize: [10, 70],
-              color: ['rgba(255,255,255,.2)']
+              color: ['rgba(105,255,233,.2)']
             },
             controller: {
               inRange: {
                 color: ['#c23531']
               },
               outOfRange: {
-                color: ['#444']
+                color: ['rgba(255,0,0,0.2)']
+                // color: ['#444']
               }
             }
           },
@@ -310,7 +311,8 @@ export default {
 <style lang="scss" scoped>
 .wrap {
   width: 65%;
-  border: 1px solid #999;
+  border: 1px solid #42b983;
+  border-radius: 5px;
   margin: 0 auto;
   height: 500px;
   .header {

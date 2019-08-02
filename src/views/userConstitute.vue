@@ -3,22 +3,28 @@
     <header class="header">用户构成分析</header>
     <div class="content_box">
       <div class="content_list">
-        <div class="content_item">总用户数：15263</div>
-        <div class="content_item">性别比例：3.2:1</div>
-        <div class="content_item">平均年龄：31岁</div>
-        <div class="content_item">本月新增：652人</div>
+        <div class="content_item">总用户数：{{chartData00.totalNum}}</div>
+        <div class="content_item">性别比例：{{chartData00.sexRatio}}</div>
+        <div class="content_item">平均年龄：{{chartData00.averageAge}}岁</div>
+        <div class="content_item">本月新增：{{chartData00.newAdd}}人</div>
       </div>
       <div class="content_list">
         <div class="title">社区用户人数排名</div>
-        <ve-histogram :data="chartData01" :extend="extend" height="300px" width="150px"></ve-histogram>
+        <ve-histogram
+          :data="chartData01"
+          :colors="color01"
+          :extend="extend"
+          height="300px"
+          width="150px"
+        ></ve-histogram>
       </div>
       <div class="content_list">
         <div class="title">月度人数变动</div>
-        <ve-line :data="chartData02" height="400px"></ve-line>
+        <ve-line :data="chartData02" height="400px" :colors="color02" :settings="chartSettings2"></ve-line>
       </div>
       <div class="content_list">
         <div class="title">用户年龄段统计</div>
-        <ve-histogram :data="chartData03" width="300px" :extend="extend"></ve-histogram>
+        <ve-histogram :data="chartData03" width="300px" :colors="color03" :extend="extend"></ve-histogram>
       </div>
     </div>
   </div>
@@ -28,17 +34,29 @@
 export default {
   data() {
     this.extend = {
-      'xAxis.0.axisLabel.rotate': 65,
+      // 'xAxis.0.axisLabel.rotate': 90,
       series: {
         label: { show: true, position: "top" }
       }
     }
+    this.chartSettings2 = {
+      area: true
+    }
+    this.color01 = ['#ef5350']
+    this.color02 = ['#ffca28']
+    this.color03 = ['#66bb6a']
     return {
+      chartData00: {
+        totalNum: '15263',
+        sexRatio: '3.2:1',
+        averageAge: '31',
+        newAdd: '325'
+      },
       chartData01: {
         columns: ['社区', '人数'],
         rows: [
-          { '社区': '党建论坛', '人数': 1393 },
-          { '社区': '社区论坛', '人数': 3530 },
+          { '社区': '党\n建\n论\n坛', '人数': 1393 },
+          { '社区': '社\n区\n论\n坛', '人数': 3530 },
         ]
       },
       chartData02: {
@@ -61,12 +79,12 @@ export default {
       chartData03: {
         columns: ['年龄段', '用户数'],
         rows: [
-          { '年龄段': '18岁以下', '用户数': 1393 },
-          { '年龄段': '18-25岁', '用户数': 3430 },
-          { '年龄段': '25-35岁', '用户数': 2393 },
-          { '年龄段': '18-25岁', '用户数': 3930 },
-          { '年龄段': '35-50岁', '用户数': 5393 },
-          { '年龄段': '50岁以上', '用户数': 1530 },
+          { '年龄段': '18\n岁\n以\n下', '用户数': 1393 },
+          { '年龄段': '18\n-\n25\n岁', '用户数': 3430 },
+          { '年龄段': '25\n-\n35\n岁', '用户数': 2393 },
+          { '年龄段': '18\n-\n25\n岁', '用户数': 3930 },
+          { '年龄段': '35\n-\n50\n岁', '用户数': 5393 },
+          { '年龄段': '50\n岁\n以\n上', '用户数': 1530 },
         ]
       },
     }
@@ -94,9 +112,11 @@ export default {
     justify-content: space-between;
     .content_list {
       width: 48%;
-      height: 300px;
-      border: 1px solid #888;
+      // height: 300px;
+      border: 1px solid #66bb6a;
+      border-radius: 5px;
       box-sizing: border-box;
+      overflow: hidden;
       &:first-child {
         display: flex;
         width: 75%;
@@ -109,12 +129,12 @@ export default {
       }
       &:nth-child(3) {
         width: 60%;
-        height: 400px;
+        // height: 400px;
         margin-top: 30px;
       }
       &:nth-child(4) {
         width: 35%;
-        height: 400px;
+        // height: 400px;
         margin-top: 30px;
       }
       .title {
@@ -131,7 +151,19 @@ export default {
         justify-content: center;
         width: 35%;
         height: 35%;
-        border: 1px solid #888;
+        // border: 1px solid #888;
+        color: #fff;
+        border-radius: 5px;
+        background-color: #ef5350;
+        &:nth-child(2) {
+          background-color: #42a5f5;
+        }
+        &:nth-child(3) {
+          background-color: #66bb6a;
+        }
+        &:nth-child(4) {
+          background-color: #ffca28;
+        }
       }
     }
   }

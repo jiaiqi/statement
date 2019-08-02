@@ -70,7 +70,8 @@ export default {
     justify-content: space-around;
     .content_item {
       height: 600px;
-      border: 1px solid #999;
+      border: 1px solid #42b983;
+      border-radius: 5px;
       // display: flex;
       // justify-content: center;
       // align-items: center;
