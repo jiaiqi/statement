@@ -3,7 +3,7 @@
     <header class="header">文件服务数量分析</header>
     <div class="content_box">
       <div class="content_item col-60">
-        <ve-histogram :data="chartData1" height="600px"></ve-histogram>
+        <ve-histogram :data="chartData1" height="600px" width="450px"></ve-histogram>
       </div>
       <div class="content_item col-35" style="padding-top:50px;box-sizing:border-box;">
         <ve-ring :data="chartData2" :settings="chartSettings"></ve-ring>
@@ -16,8 +16,8 @@
 export default {
   data() {
     this.chartSettings = {
-      radius: 80,
-      offsetY: 230,
+      radius: 120,
+      offsetY: 280,
       roseType: 'radius'
     }
     return {
@@ -73,6 +73,9 @@ export default {
       // display: flex;
       // justify-content: center;
       // align-items: center;
+      .ve-histogram {
+        margin: auto;
+      }
     }
   }
 }
