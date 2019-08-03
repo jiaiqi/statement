@@ -148,6 +148,7 @@ export default {
     this.setData1()
   },
   methods: {
+
     setData1() {
       let self = this;
       let myChart = this.$echarts.init(document.getElementById('charts'));
@@ -191,12 +192,12 @@ export default {
         },
         tooltip: {
           padding: 10,
-          backgroundColor: '#222',
-          borderColor: '#000',
+          backgroundColor: 'rgba(0,0,0,0.6)',
+          borderColor: '#999',
           borderWidth: 1,
           formatter: function (obj) {
             let value = obj.value;
-            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
+            return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px";>'
               + obj.seriesName + '-' + value[0] + '号：'
               + '</div>'
               + schema[1].text + '：' + value[1] + '<br>'

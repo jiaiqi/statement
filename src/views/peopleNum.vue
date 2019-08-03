@@ -2,11 +2,19 @@
   <div class="wrap">
     <header>在线人数分析</header>
     <div class="tab">
-      <div class="items" @click="changeDataType(1)" :class="{'active':checkDataType===1}">今日</div>
-      <div class="items" @click="changeDataType(2)" :class="{'active':checkDataType===2}">本周</div>
-      <div class="items" @click="changeDataType(3)" :class="{'active':checkDataType===3}">本月</div>
-      <div class="items" @click="changeDataType(4)" :class="{'active':checkDataType===4}">本年</div>
-      <div class="items" @click="changeDataType(5)" :class="{'active':checkDataType===5}">自定义时间段</div>
+      <div class="tab_left">
+        <div class="items" @click="changeDataType(1)" :class="{'active':checkDataType===1}">今日</div>
+        <div class="items" @click="changeDataType(2)" :class="{'active':checkDataType===2}">本周</div>
+        <div class="items" @click="changeDataType(3)" :class="{'active':checkDataType===3}">本月</div>
+        <div class="items" @click="changeDataType(4)" :class="{'active':checkDataType===4}">本年</div>
+        <div class="items" @click="changeDataType(5)" :class="{'active':checkDataType===5}">自定义时间段</div>
+      </div>
+      <div class="tab_right">
+        <div class="items" @click="changeChartType(1)" :class="{'active':checkChartType===1}">折线图</div>
+        <div class="items" @click="changeChartType(2)" :class="{'active':checkChartType===2}">柱状图</div>
+        <div class="items" @click="changeChartType(3)" :class="{'active':checkChartType===3}">饼图</div>
+        <div class="items" @click="changeChartType(4)" :class="{'active':checkChartType===4}">饼图</div>
+      </div>
     </div>
     <div class="top">
       <div class="top_item">最大在线人数：{{topData.maxOnlineNum}}</div>
@@ -14,7 +22,14 @@
       <div class="top_item">产生时间：{{topData.time}}</div>
     </div>
     <div class="content">
-      <ve-line :data="chartData"></ve-line>
+      <!-- 折线图 -->
+      <ve-line :data="chartData" v-if="checkChartType === 1"></ve-line>
+      <!-- 柱状图 -->
+      <ve-histogram :data="chartData" v-if="checkChartType === 2"></ve-histogram>
+      <!-- 饼图 -->
+      <ve-pie :data="chartData" v-if="checkChartType === 3"></ve-pie>
+      <!-- 环图 -->
+      <ve-ring :data="chartData" v-if="checkChartType === 4"></ve-ring>
     </div>
   </div>
 </template>
@@ -28,6 +43,7 @@ export default {
         time: '17:31'
       },
       checkDataType: 1,
+      checkChartType: 1,
       chartData: {},
       chartData1: {
         columns: ['时间', '访问用户'],
@@ -142,10 +158,17 @@ export default {
     changeDataType(type) {
       this.checkDataType = type
       this.checkData();
+    },
+    changeChartType(type) {
+      this.checkChartType = type
+      this.checkData();
     }
   },
   created() {
     this.checkData();
+    this.$http.get("/getOnlinePeople").then(res => {
+      console.log(res);
+    });
   },
 };
 </script>
@@ -162,9 +185,21 @@ export default {
     font-weight: 600;
   }
   .tab {
-    width: 400px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    .tab_left {
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+      float: left;
+    }
+    .tab_right {
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      float: right;
+    }
     .items {
       // width: 150px;
       border-radius: 5px;
@@ -186,6 +221,7 @@ export default {
   .top {
     width: 100%;
     height: 50px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;

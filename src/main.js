@@ -5,6 +5,7 @@ import router from './router';
 import store from './store';
 import echarts from 'echarts'
 import Axios from 'axios'
+require('./mock')
 
 Vue.prototype.$echarts = echarts
 Vue.prototype.$http = Axios
